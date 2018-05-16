@@ -1,0 +1,31 @@
+<h1>Turmrechnen</h1>
+
+<table>
+  <tr>
+    <td>Start Value:</td>
+    <td>
+      <input type="number" [(ngModel)]="startValue" />
+    </td>
+  </tr>
+  <tr>
+    <td>Height:</td>
+    <td>
+      <input type="number" min='0' [(ngModel)]="height" />
+    </td>
+    <td [hidden]="height>=2" style="color: red">Height must be >= 2</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button (click)="calculate()" [disabled]="height<2">Calculate</button>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr *ngFor="let row of tower">
+    <td *ngFor="let item of row; index as i" [align]="i % 3 == 2 ? 'left' : 'right'">
+       {{item}}
+    </td>
+  </tr>
+</table>
